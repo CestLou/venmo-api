@@ -12,7 +12,7 @@ module VenmoAPI
     end
 
     def send (access_token)
-      uri = URI('https://sandbox-api.venmo.com/v1/' + 'payments')
+      uri = URI(VenmoAPI::Helper::VENMO_BASE_URL + 'payments')
       res = Net::HTTP.post_form(uri, 'access_token' => access_token,
                                      'phone' => self.phone,
                                      'email' => self.email,
